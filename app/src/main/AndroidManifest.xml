@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MyList"
+            android:name=".list.MyList"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,6 +16,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name=".contentprovider.StudentContentProvider"
+            android:authorities="com.example.provider.College" >
+        </provider>
+
+        <activity
+            android:name=".broadcast.Broadcast"
+            android:label="@string/title_activity_broadcast" >
+        </activity>
+
+        <receiver android:name=".broadcast.MyReceiver">
+            <intent-filter>
+                <action android:name="net.krishlogic.androidtutorials.BROADCAST_INTENT">
+                </action>
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

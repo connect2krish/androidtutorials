@@ -1,14 +1,20 @@
-package net.krishlogic.androidtutorials;
+package net.krishlogic.androidtutorials.list;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import net.krishlogic.androidtutorials.R;
+import net.krishlogic.androidtutorials.broadcast.Broadcast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,12 +24,15 @@ public class MyList extends Activity {
 
     private ListView listView;
     private ListViewAdapter listViewAdapter;
+    Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_my_list);
+
+        mContext = this;
 
         configElements();
 
@@ -36,13 +45,35 @@ public class MyList extends Activity {
 
     private void setAdapter(){
         List<String> list = new ArrayList<String>();
-        list.add("One");
-        list.add("Two");
-        list.add("Three");
-        list.add("Four");
+        list.add("Broadcast");
+        list.add("Content Provider");
+        list.add("Drag and Drop");
+        list.add("Notifications");
+        list.add("Send Email");
+        list.add("Send SMS");
+        list.add("Phone Calls");
+        list.add("Animations");
 
         listViewAdapter = new ListViewAdapter(this, list);
         listView.setAdapter(listViewAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=null;
+
+                switch(position){
+                    case 0:
+                        intent = new Intent(mContext, Broadcast.class);
+                        startActivity(intent);
+                        break;
+
+                    default:
+                        Toast.makeText(mContext, "N/A",Toast.LENGTH_SHORT);
+                }
+            }
+        });
+
     }
 
     public class ListViewAdapter extends BaseAdapter {
