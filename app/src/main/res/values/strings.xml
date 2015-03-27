@@ -7,5 +7,6 @@
     <string name="title_activity_broadcast">Broadcast</string>
     <string name="title_activity_sms">SMS</string>
     <string name="title_activity_email">Email</string>
+    <string name="title_activity_camera">Camera</string>
 
 </resources>

@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import net.krishlogic.androidtutorials.R;
 import net.krishlogic.androidtutorials.broadcast.Broadcast;
+import net.krishlogic.androidtutorials.camera.CameraApp;
 import net.krishlogic.androidtutorials.email.Email;
 import net.krishlogic.androidtutorials.sms.SMS;
 
@@ -50,6 +51,7 @@ public class MyList extends Activity {
         list.add("Broadcast");
         list.add("Send SMS");
         list.add("Send Email");
+        list.add("Camera");
 
 /*
         list.add("Content Provider");
@@ -77,6 +79,10 @@ public class MyList extends Activity {
                         break;
                     case 2:
                         intent = new Intent(mContext, Email.class);
+                        startActivity(intent);
+                        break;
+                    case 3:
+                        intent = new Intent(mContext, CameraApp.class);
                         startActivity(intent);
                         break;
 
