@@ -27,13 +27,23 @@
             android:label="@string/title_activity_broadcast" >
         </activity>
 
-        <receiver android:name=".broadcast.MyReceiver">
+        <receiver android:name=".broadcast.MyReceiver" >
             <intent-filter>
-                <action android:name="net.krishlogic.androidtutorials.BROADCAST_INTENT">
+                <action android:name="net.krishlogic.androidtutorials.BROADCAST_INTENT" >
                 </action>
             </intent-filter>
         </receiver>
 
+        <activity
+            android:name=".sms.SMS"
+            android:label="@string/title_activity_sms" >
+        </activity>
+        <activity
+            android:name=".email.Email"
+            android:label="@string/title_activity_email" >
+        </activity>
     </application>
+
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
 </manifest>

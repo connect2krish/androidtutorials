@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import net.krishlogic.androidtutorials.R;
 import net.krishlogic.androidtutorials.broadcast.Broadcast;
+import net.krishlogic.androidtutorials.email.Email;
+import net.krishlogic.androidtutorials.sms.SMS;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,14 +48,16 @@ public class MyList extends Activity {
     private void setAdapter(){
         List<String> list = new ArrayList<String>();
         list.add("Broadcast");
+        list.add("Send SMS");
+        list.add("Send Email");
+
+/*
         list.add("Content Provider");
         list.add("Drag and Drop");
         list.add("Notifications");
-        list.add("Send Email");
-        list.add("Send SMS");
         list.add("Phone Calls");
         list.add("Animations");
-
+*/
         listViewAdapter = new ListViewAdapter(this, list);
         listView.setAdapter(listViewAdapter);
 
@@ -65,6 +69,14 @@ public class MyList extends Activity {
                 switch(position){
                     case 0:
                         intent = new Intent(mContext, Broadcast.class);
+                        startActivity(intent);
+                        break;
+                    case 1:
+                        intent = new Intent(mContext, SMS.class);
+                        startActivity(intent);
+                        break;
+                    case 2:
+                        intent = new Intent(mContext, Email.class);
                         startActivity(intent);
                         break;
 
