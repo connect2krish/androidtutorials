@@ -33,7 +33,7 @@ public class CameraApp extends Activity {
         public void onPictureTaken(byte[] data, Camera camera) {
 
             Bitmap bitmap = BitmapFactory.decodeByteArray(data , 0, data .length);
-            
+
             if(bitmap==null){
                 Toast.makeText(getApplicationContext(), "not taken", Toast.LENGTH_SHORT).show();
             }  else  {
